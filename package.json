@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Imersão React  da Alura, para desenvolver um projeto alguns projetos com a comunidade !",
   "main": "index.js",
-  
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "next dev",
@@ -11,21 +10,19 @@
     "start": "next start",
     "lint": "next lint"
   },
-
   "repository": {
     "type": "git",
     "url": "git+https://github.com/RicardoSantanaEvangelista/Imersao-React-Alura.git"
   },
-
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/RicardoSantanaEvangelista/Imersao-React-Alura/issues"
   },
-
   "homepage": "https://github.com/RicardoSantanaEvangelista/Imersao-React-Alura#readme",
   "dependencies": {
+    "@skynexui/components": "^1.23.6",
     "next": "^12.0.8",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
