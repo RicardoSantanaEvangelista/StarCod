@@ -23,7 +23,7 @@
 
 <br>
 
-<h2 align="center">Click aqui para acessar o site hospedado no GitHub Pages: <a href="https://star-cod-ricardosantanaevangelista.vercel.app">Site</a></h2>
+<h2 align="center">Click aqui para acessar o site hospedado no Vercel: <a href="https://star-cod-ricardosantanaevangelista.vercel.app">Site</a></h2>
 
 <h2 align="center">Em processo de implementação !</h2>
     
