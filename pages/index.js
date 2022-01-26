@@ -62,8 +62,6 @@ export default function PaginaInicial() {
                 }else{
                   alert("[ERRO] Por favor, preencha os campos corretamente !");
                 }
-               
-                
             }}
             styleSheet={{
               display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
