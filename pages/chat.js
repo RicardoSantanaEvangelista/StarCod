@@ -2,7 +2,7 @@ import { Box, Text, TextField, Image, Button } from '@skynexui/components';
 import React from 'react';
 import appConfig from '../config.json';
 
-export default function ChatPage(props) {
+export default function ChatPage() {
     const [userName, setUserNamee] = React.useState('RicardoSantanaEvangelista');
     const [mensagem, setMensagem] = React.useState('');
     const [listaDeMensagens, setListaDeMensagens] = React.useState([]);
