@@ -3,14 +3,14 @@ import React from 'react';
 import appConfig from '../config.json';
 
 export default function ChatPage() {
-    const [userName, setUserNamee] = React.useState('RicardoSantanaEvangelista');
+    const [userNameChat, setUserNameChat] = React.useState('RicardoSantanaEvangelista');
     const [mensagem, setMensagem] = React.useState('');
     const [listaDeMensagens, setListaDeMensagens] = React.useState([]);
 
     function handleNovaMensagem(novaMensagem) {
         const mensagem = {
             id: listaDeMensagens.length + 1,
-            de: `${userName}`,
+            de: `${userNameChat}`,
             texto: novaMensagem,
         };
 
@@ -37,13 +37,12 @@ export default function ChatPage() {
                     flexDirection: 'column',
                     flex: 1,
                     boxShadow: '0 2px 10px 0 rgb(0 0 0 / 20%)',
-                    borderRadius: '5px',
+                    borderRadius: '15px',
                     backgroundColor: appConfig.theme.colors.neutrals[700],
                     height: '90%',
                     maxWidth: '60%',
                     maxHeight: '95vh',
-                    padding: '32px',
-                    borderRadius: '10px',
+                    padding: '35px',
                 }}
             >
                 <Header />
@@ -128,7 +127,7 @@ function Header() {
 
 
 function MessageList(props) {
-    const [userName, setUserNamee] = React.useState('RicardoSantanaEvangelista');
+    const [userNameChat, setUserNameChat] = React.useState('RicardoSantanaEvangelista');
     console.log(props);
     return (
         <Box
@@ -169,7 +168,7 @@ function MessageList(props) {
                                     display: 'inline-block',
                                     marginRight: '8px',
                                 }}
-                                src={`https://github.com/${userName}.png`}
+                                src={`https://github.com/${userNameChat}.png`}
                             />
                             <Text tag="strong">
                                 {mensagem.de}
