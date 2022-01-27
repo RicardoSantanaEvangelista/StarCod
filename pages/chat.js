@@ -17,6 +17,7 @@ export default function ChatPage() {
         supabaseClient
             .from('mensagens')
             .select('*')
+            .order('id', {ascending: false})
             .then( ({ data }) => {
             console.log(data)
             setListaDeMensagens(data);
