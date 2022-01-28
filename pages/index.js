@@ -58,7 +58,7 @@ export default function PaginaInicial() {
             onSubmit={ function (eventInfo){
                 eventInfo.preventDefault();
                 if(username.length > 2){
-                  roteamento.push('/chat');
+                  roteamento.push(`/chat?username=${username}`);
                 }else{
                   alert("[ERRO] Por favor, preencha os campos corretamente !");
                 }
