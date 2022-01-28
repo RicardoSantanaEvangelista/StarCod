@@ -32,7 +32,7 @@ export default function PaginaInicial() {
         styleSheet={{
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           backgroundColor: appConfig.theme.colors.primary['000'],
-          backgroundImage: 'url(https://geekblog.com.br/wp-content/uploads/2020/12/star-wars-more-new-disney-shows-in-development_1w6s-950x500.jpg)',
+          backgroundImage: 'url(https://i.pinimg.com/originals/6e/8a/ef/6e8aefa2da141fc35572a1abc1953371.gif)',
           backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundBlendMode: 'multiply',
         }}
       >
@@ -50,6 +50,7 @@ export default function PaginaInicial() {
             boxShadow: '0 2px 10px 0 rgb(0 0 0 / 20%)',
             backgroundColor: appConfig.theme.colors.neutrals[700],
             borderRadius: '20px',
+            opacity: "0.80"
           }}
         >
           {/* Formulário */}

@@ -35,7 +35,6 @@ export default function ChatPage() {
             .select('*')
             .order('id', {ascending: false})
             .then( ({ data }) => {
-            console.log(data)
             setListaDeMensagens(data);
         });
         const subscription = escutaMensagensEmTempoReal((novaMensagem) => {
@@ -43,7 +42,6 @@ export default function ChatPage() {
             console.log('listaDeMensagens:', listaDeMensagens);
 
             setListaDeMensagens((valorAtualDaLista) => {
-              console.log('valorAtualDaLista:', valorAtualDaLista);
               return [
                 novaMensagem,
                 ...valorAtualDaLista,
@@ -79,7 +77,7 @@ export default function ChatPage() {
             styleSheet={{
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 backgroundColor: appConfig.theme.colors.primary["000"],
-                backgroundImage: 'url(https://geekblog.com.br/wp-content/uploads/2020/12/star-wars-more-new-disney-shows-in-development_1w6s-950x500.jpg)',
+                backgroundImage: 'url(https://i.pinimg.com/originals/6e/8a/ef/6e8aefa2da141fc35572a1abc1953371.gif)',
                 backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundBlendMode: 'multiply',
                 color: appConfig.theme.colors.neutrals['000']
             }}
@@ -96,6 +94,7 @@ export default function ChatPage() {
                     maxWidth: '60%',
                     maxHeight: '95vh',
                     padding: '35px',
+                    opacity: '0.80'
                 }}
             >
                 <Header />
@@ -104,15 +103,16 @@ export default function ChatPage() {
                         position: 'relative',
                         display: 'flex',
                         flex: 1,
-                        height: '80%',
+                        height: '100%',
                         backgroundColor: appConfig.theme.colors.neutrals[600],
                         flexDirection: 'column',
-                        borderRadius: '5px',
+                        borderRadius: '10px',
                         padding: '16px',
                     }}
+                    
                 >
                     <MessageList mensagens={listaDeMensagens} />
-                    
+
                     <Box
                         as="form"
                         styleSheet={{
@@ -161,11 +161,12 @@ export default function ChatPage() {
 function Header() {
     return (
         <>
-            <Box styleSheet={{ width: '100%', marginBottom: '16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }} >
-                <Text variant='heading5'>
+            <Box styleSheet={{ width: '100%', marginBottom: '5px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }} >
+                <Text variant='heading5' styleSheet={{color: '#FFF'}}>
                     Chat
                 </Text>
                 <Button
+                    styleSheet={{color: '#FFF'}}
                     variant='tertiary'
                     colorVariant='neutral'
                     label='Logout'
