@@ -11,6 +11,15 @@ const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5v
 const SUPABASE_URL = "https://rhzgongxgwjeozoirvpw.supabase.co";
 const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
+function escutaMensagensEmTempoReal(adicionaMensagem) {
+    return supabaseClient
+      .from('mensagens')
+      .on('INSERT', (respostaLive) => {
+        adicionaMensagem(respostaLive.new);
+      })
+      .subscribe();
+  }
+
 
 export default function ChatPage() {
 
@@ -29,7 +38,22 @@ export default function ChatPage() {
             console.log(data)
             setListaDeMensagens(data);
         });
+        const subscription = escutaMensagensEmTempoReal((novaMensagem) => {
+            console.log('Nova mensagem:', novaMensagem);
+            console.log('listaDeMensagens:', listaDeMensagens);
 
+            setListaDeMensagens((valorAtualDaLista) => {
+              console.log('valorAtualDaLista:', valorAtualDaLista);
+              return [
+                novaMensagem,
+                ...valorAtualDaLista,
+              ]
+            });
+          });
+      
+          return () => {
+            subscription.unsubscribe();
+          }  
     }, []);
 
     function handleNovaMensagem(novaMensagem) {
@@ -44,11 +68,7 @@ export default function ChatPage() {
             .insert([
                 mensagem
             ])
-            .then( ( { data } ) => {
-                setListaDeMensagens([
-                   data[0],
-                    ...listaDeMensagens,
-            ]);
+           .then( ( { data } ) => {
          });
 
         setMensagem('');
@@ -92,13 +112,7 @@ export default function ChatPage() {
                     }}
                 >
                     <MessageList mensagens={listaDeMensagens} />
-                    {/* {listaDeMensagens.map((mensagemAtual) => {
-                        return (
-                            <li key={mensagemAtual.id}>
-                                {mensagemAtual.de}: {mensagemAtual.texto}
-                            </li>
-                        )
-                    })} */}
+                    
                     <Box
                         as="form"
                         styleSheet={{
@@ -131,7 +145,11 @@ export default function ChatPage() {
                                 color: appConfig.theme.colors.neutrals[200],
                             }}
                         />
-                       <ButtonSendSticker/>
+                       <ButtonSendSticker
+                            onStickerClick={ ( sticker ) => {
+                                handleNovaMensagem(':sticker: ' + sticker);
+                            }}
+                       />
                     </Box>
                 </Box>
             </Box>
