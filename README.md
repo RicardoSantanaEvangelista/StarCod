@@ -19,11 +19,15 @@
 <div align="center" >
     <h2>Imagem da Home Page do StarCod !</h2> <br>
     <img  src="./img-readme/img1.png" alt="Imagem da Front Page">
+    <br>
+    <br>
+    <h2>Imagem do Chat do StarCod !</h2> 
+    <br>
+    <img  src="./img-readme/img2.png" alt="Imagem da Front Page">
 </div>
 
 <br>
 
 <h2 align="center">Click aqui para acessar o site hospedado no Vercel: <a href="https://star-cod-ricardosantanaevangelista.vercel.app">Site</a></h2>
 
-<h2 align="center">Em processo de implementação !</h2>
     
