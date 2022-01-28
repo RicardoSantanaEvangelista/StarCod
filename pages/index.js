@@ -81,6 +81,7 @@ export default function PaginaInicial() {
                 const value = event.target.value;
                 setUserName(value);
               }}
+              placeholder='Darth Vader'
               textFieldColors={{
                 neutral: {
                   textColor: appConfig.theme.colors.neutrals[200],
@@ -121,13 +122,24 @@ export default function PaginaInicial() {
               minHeight: '240px',
             }}
           >
-            <Image
-              styleSheet={{
-                borderRadius: '50%',
-                marginBottom: '16px',
-              }}
-              src={`https://github.com/${username}.png`}
-            />
+            {username !== ""
+              ? 
+                <Image
+                styleSheet={{
+                  borderRadius: '50%',
+                  marginBottom: '16px',
+                }}
+                src={`https://github.com/${username}.png`}
+                />
+              :
+                <Image
+                  styleSheet={{
+                    borderRadius: '50%',
+                    marginBottom: '16px',
+                  }}
+                  src={`https://i.pinimg.com/originals/22/e3/0a/22e30ae57d7d0570bceb816f2d708cde.jpg`}
+                />
+            }
             <Text
               variant="body4"
               styleSheet={{

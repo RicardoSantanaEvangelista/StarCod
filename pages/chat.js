@@ -94,7 +94,7 @@ export default function ChatPage() {
                     maxWidth: '60%',
                     maxHeight: '95vh',
                     padding: '35px',
-                    opacity: '0.80'
+                    opacity: '0.70'
                 }}
             >
                 <Header />
@@ -103,13 +103,12 @@ export default function ChatPage() {
                         position: 'relative',
                         display: 'flex',
                         flex: 1,
-                        height: '100%',
+                        height: '80%',
                         backgroundColor: appConfig.theme.colors.neutrals[600],
                         flexDirection: 'column',
-                        borderRadius: '10px',
-                        padding: '16px',
+                        borderRadius: '5px',
+                        padding: '15px',
                     }}
-                    
                 >
                     <MessageList mensagens={listaDeMensagens} />
 
@@ -238,7 +237,7 @@ function MessageList(props) {
                         </Box>
                         {mensagem.texto.startsWith(':sticker:') 
                             ?(
-                                 <Image src={mensagem.texto.replace(':sticker:', '')} />
+                                 <Image styles={{width: "10px", height:'10px'}} src={mensagem.texto.replace(':sticker:', '')} />
                             )
                             :(
                                 mensagem.texto
